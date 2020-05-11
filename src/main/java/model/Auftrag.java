@@ -72,4 +72,16 @@ public class Auftrag {
     public void setAuftragRealisiertAm(Date auftragRealisiertAm) {
         this.auftragRealisiertAm = auftragRealisiertAm;
     }
+
+    @Override
+    public String toString() {
+        return "Auftrag{" +
+                "auftragsNr=" + auftragsNr +
+                ", kundenNr=" + kundenNr +
+                ", geplanterUmfangInEuro=" + geplanterUmfangInEuro +
+                ", realisierterUmfangInEuro=" + realisierterUmfangInEuro +
+                ", kurzbeschreibung='" + kurzbeschreibung + '\'' +
+                ", auftragRealisiertAm=" + auftragRealisiertAm +
+                '}';
+    }
 }
