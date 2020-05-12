@@ -1,18 +1,39 @@
-package model;
+package com.example.TestTest.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Kunden")
 public class Kunden {
+    public Kunden() {
+    }
 
-
+    @Id
+    @Column(name = "KUNDENR")
     private int kundeNr;
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "VORNAME")
     private String vorname;
+    @Column(name = "STRASSE")
     private String strasse;
+    @Column(name = "PLZ")
     private int plz;
+    @Column(name = "ORT")
     private String ort;
+    @Column(name = "LAND")
     private String land;
+    @Column(name = "FESTNETZ")
     private int festnetz;
+    @Column(name = "MOBIL")
     private int mobil;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "Hinweis")
     private String hinweis;
 
     public Kunden(int kundeNr, String name, String vorname, String strasse, int plz, String ort, String land, int festnetz, int mobil, String email, String hinweis) {

@@ -1,19 +1,32 @@
-package model;
+package com.example.TestTest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
+
+import static java.lang.String.format;
+
 @Entity
+@Table(name="auftrag")
 public class Auftrag {
     public Auftrag() {
     }
 
     @Id
+
+    @Column(name = "AUFTRAGSNR")
     private int auftragsNr;
+    @Column(name = "KUNDENNR")
     private int kundenNr;
+    @Column(name = "GEPLANTERUMFANGINEURO")
     private double geplanterUmfangInEuro;
+    @Column(name = "REALISIERTERUMFANGINEURO")
     private double realisierterUmfangInEuro;
+    @Column(name = "KURZBESCHREIBUNG")
     private String kurzbeschreibung;
+    @Column(name = "AUFTRAGREALISIERTAM")
     private Date auftragRealisiertAm;
 
     public Auftrag(int auftragsNr, int kundenNr, double geplanterUmfangInEuro, double realisierterUmfangInEuro, String kurzbeschreibung, Date auftragRealisiertAm) {

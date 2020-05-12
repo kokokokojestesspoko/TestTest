@@ -1,6 +1,6 @@
 package com.example.TestTest.Controler;
 
-import model.Auftrag;
+import com.example.TestTest.model.Auftrag;
 
 import java.util.ArrayList;
 import java.util.List;
