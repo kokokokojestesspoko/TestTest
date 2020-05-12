@@ -28,15 +28,15 @@ public class Kunden {
     @Column(name = "LAND")
     private String land;
     @Column(name = "FESTNETZ")
-    private int festnetz;
+    private String festnetz;
     @Column(name = "MOBIL")
-    private int mobil;
+    private String mobil;
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "Hinweis")
     private String hinweis;
 
-    public Kunden(int kundeNr, String name, String vorname, String strasse, int plz, String ort, String land, int festnetz, int mobil, String email, String hinweis) {
+    public Kunden(int kundeNr, String name, String vorname, String strasse, int plz, String ort, String land, String festnetz, String mobil, String email, String hinweis) {
         this.kundeNr = kundeNr;
         this.name = name;
         this.vorname = vorname;
@@ -106,19 +106,19 @@ public class Kunden {
         this.land = land;
     }
 
-    public int getFestnetz() {
+    public String getFestnetz() {
         return festnetz;
     }
 
-    public void setFestnetz(int festnetz) {
+    public void setFestnetz(String festnetz) {
         this.festnetz = festnetz;
     }
 
-    public int getMobil() {
+    public String getMobil() {
         return mobil;
     }
 
-    public void setMobil(int mobil) {
+    public void setMobil(String mobil) {
         this.mobil = mobil;
     }
 
