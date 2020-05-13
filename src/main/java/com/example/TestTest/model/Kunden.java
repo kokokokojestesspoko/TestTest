@@ -1,12 +1,16 @@
 package com.example.TestTest.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import net.bytebuddy.implementation.bind.annotation.AllArguments;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="Kunden")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
+
 public class Kunden {
     public Kunden() {
     }
@@ -35,6 +39,8 @@ public class Kunden {
     private String email;
     @Column(name = "Hinweis")
     private String hinweis;
+    @OneToMany(mappedBy = "kunden", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   private Set<Auftrag> auftrags;
 
     public Kunden(int kundeNr, String name, String vorname, String strasse, int plz, String ort, String land, String festnetz, String mobil, String email, String hinweis) {
         this.kundeNr = kundeNr;

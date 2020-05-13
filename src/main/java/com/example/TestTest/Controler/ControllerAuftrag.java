@@ -19,7 +19,10 @@ public class ControllerAuftrag  {
 
 
     @GetMapping("/Auftrage")
-    public List<Auftrag> index(){
+    public List<Auftrag> index(@RequestParam(value = "kundencheck", required = false) boolean kundenCheck){
+        if (kundenCheck) {
+            return auftragRepository.findByKundenKundeNrIsNull();
+        }
 
         return auftragRepository.findAll();
     }

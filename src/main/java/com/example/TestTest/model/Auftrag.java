@@ -1,15 +1,16 @@
 package com.example.TestTest.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.Date;
 
 import static java.lang.String.format;
 
 @Entity
 @Table(name="auftrag")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Auftrag {
     public Auftrag() {
     }
@@ -28,6 +29,11 @@ public class Auftrag {
     private String kurzbeschreibung;
     @Column(name = "AUFTRAGREALISIERTAM")
     private Date auftragRealisiertAm;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "kundenNr", nullable = false)
+    @JsonIgnore
+    private Kunden kunden;
 
     public Auftrag(int auftragsNr, int kundenNr, double geplanterUmfangInEuro, double realisierterUmfangInEuro, String kurzbeschreibung, Date auftragRealisiertAm) {
         this.auftragsNr = auftragsNr;

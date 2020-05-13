@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface AuftragRepository extends JpaRepository<Auftrag,Integer> {
         List<Auftrag> findByKundenNr(int kundeNummer);
-
+        List<Auftrag> findByKundenKundeNrIsNull();
 
 }

@@ -13,7 +13,8 @@ public interface KundenRepository extends JpaRepository<Kunden,Integer> {
 
     @Query(value = "FROM Kunden k where k.email <> ''")
     List<Kunden> findAllByNotEmptyEmail();
-    @Query(value = "From Kunden k where (k.email IS NOT NULL and k.festnetz <> '' ) or (k.email <>'' and k.mobil <>'') ")
+    @Query(value = "From Kunden k where (k.email <>'' AND k.festnetz <> '' ) or (k.email <> '' and k.mobil <>'') ")
     List<Kunden> findWithEmailAndPhone();
+
 
 }
