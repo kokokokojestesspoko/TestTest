@@ -1,4 +1,4 @@
-package com.example.TestTest;
+package com.example.TestTest.repo;
 
 import com.example.TestTest.model.Auftrag;
 import com.example.TestTest.model.Kunden;
@@ -15,6 +15,6 @@ public interface KundenRepository extends JpaRepository<Kunden,Integer> {
     List<Kunden> findAllByNotEmptyEmail();
     @Query(value = "From Kunden k where (k.email <>'' AND k.festnetz <> '' ) or (k.email <> '' and k.mobil <>'') ")
     List<Kunden> findWithEmailAndPhone();
-
-
+    @Query(value = "From Kunden k where k.auftrags is empty ")
+    List<Kunden>  noAuftrag();
 }

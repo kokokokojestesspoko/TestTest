@@ -1,7 +1,7 @@
 
 package com.example.TestTest.Controler;
 
-        import com.example.TestTest.AuftragRepository;
+        import com.example.TestTest.repo.AuftragRepository;
         import com.example.TestTest.model.Auftrag;
 
         import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,8 @@ public class ControllerAuftrag  {
 
 
     @GetMapping("/Auftrage")
-    public List<Auftrag> index(@RequestParam(value = "kundencheck", required = false) boolean kundenCheck){
-        if (kundenCheck) {
-            return auftragRepository.findByKundenKundeNrIsNull();
-        }
+    public List<Auftrag> index(){
+
 
         return auftragRepository.findAll();
     }

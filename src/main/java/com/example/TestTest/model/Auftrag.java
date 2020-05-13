@@ -10,7 +10,7 @@ import static java.lang.String.format;
 
 @Entity
 @Table(name="auftrag")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class Auftrag {
     public Auftrag() {
     }
@@ -32,7 +32,7 @@ public class Auftrag {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "kundenNr", nullable = false)
-    @JsonIgnore
+
     private Kunden kunden;
 
     public Auftrag(int auftragsNr, int kundenNr, double geplanterUmfangInEuro, double realisierterUmfangInEuro, String kurzbeschreibung, Date auftragRealisiertAm) {

@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Kunden")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 
 
 public class Kunden {
@@ -54,6 +54,9 @@ public class Kunden {
         this.mobil = mobil;
         this.email = email;
         this.hinweis = hinweis;
+    }
+
+    public Kunden(int kundeNr, String vorname, String strasse, int plz, String ort, String land, String festnetz, String mobil, String email, String hinweis) {
     }
 
     public int getKundeNr() {

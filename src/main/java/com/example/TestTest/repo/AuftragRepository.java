@@ -1,4 +1,4 @@
-package com.example.TestTest;
+package com.example.TestTest.repo;
 
 import com.example.TestTest.model.Auftrag;
 import com.example.TestTest.model.Kunden;
@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface AuftragRepository extends JpaRepository<Auftrag,Integer> {
         List<Auftrag> findByKundenNr(int kundeNummer);
-        List<Auftrag> findByKundenKundeNrIsNull();
+
 
 }
