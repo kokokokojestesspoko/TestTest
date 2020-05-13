@@ -20,12 +20,13 @@ public class ControllerAuftrag  {
 
     @GetMapping("/Auftrage")
     public List<Auftrag> index(){
+
         return auftragRepository.findAll();
     }
     @GetMapping("/Auftrag/{kundeNummer}")
-    public List<Auftrag> show(@PathVariable String kundeNummer){
-        int getkundeNummer  = Integer.parseInt(kundeNummer);
-        return auftragRepository.findByKundenNr(getkundeNummer);
+    public List<Auftrag> show(@PathVariable Integer kundeNummer){
+
+        return auftragRepository.findByKundenNr(kundeNummer);
     }
 }
 
