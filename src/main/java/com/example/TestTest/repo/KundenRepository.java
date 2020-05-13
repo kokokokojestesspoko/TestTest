@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface KundenRepository extends JpaRepository<Kunden,Integer> {
-    List<Kunden> findByKundeNr(int kundeNummer);
+    List<Kunden> findByKundeNr(int kundeNr);
 
     @Query(value = "FROM Kunden k where k.email <> ''")
     List<Kunden> findAllByNotEmptyEmail();

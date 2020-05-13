@@ -40,7 +40,7 @@ public class Kunden {
     @Column(name = "Hinweis")
     private String hinweis;
     @OneToMany(mappedBy = "kunden", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   private Set<Auftrag> auftrags;
+    private Set<Auftrag> auftrags;
 
     public Kunden(int kundeNr, String name, String vorname, String strasse, int plz, String ort, String land, String festnetz, String mobil, String email, String hinweis) {
         this.kundeNr = kundeNr;
@@ -147,19 +147,27 @@ public class Kunden {
         this.hinweis = hinweis;
     }
 
+    public Set<Auftrag> getAuftrags() {
+        return auftrags;
+    }
+
+    public void addAuftrag(Auftrag auftrag) {
+        auftrags.add(auftrag);
+    }
+
     @Override
     public String toString() {        return "Kunden{" +
-                "kundeNr=" + kundeNr +
-                ", name='" + name + '\'' +
-                ", vorname='" + vorname + '\'' +
-                ", strasse='" + strasse + '\'' +
-                ", plz=" + plz +
-                ", ort='" + ort + '\'' +
-                ", land='" + land + '\'' +
-                ", festnetz=" + festnetz +
-                ", mobil=" + mobil +
-                ", email='" + email + '\'' +
-                ", hinweis='" + hinweis + '\'' +
-                '}';
+            "kundeNr=" + kundeNr +
+            ", name='" + name + '\'' +
+            ", vorname='" + vorname + '\'' +
+            ", strasse='" + strasse + '\'' +
+            ", plz=" + plz +
+            ", ort='" + ort + '\'' +
+            ", land='" + land + '\'' +
+            ", festnetz=" + festnetz +
+            ", mobil=" + mobil +
+            ", email='" + email + '\'' +
+            ", hinweis='" + hinweis + '\'' +
+            '}';
     }
 }

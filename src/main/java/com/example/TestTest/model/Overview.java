@@ -4,6 +4,29 @@ public class Overview {
     private String adress;
     private int customerNol;
     private int numberOfOrders;
+    private int orderNo;
+    private String description;
+
+    public Overview(int orderNo, String description) {
+        this.orderNo = orderNo;
+        this.description = description;
+    }
+
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Overview(String adress, int customerNol, int numberOfOrders) {
         this.adress = adress;

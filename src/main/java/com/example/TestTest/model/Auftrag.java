@@ -12,6 +12,7 @@ import static java.lang.String.format;
 @Table(name="auftrag")
 
 public class Auftrag {
+
     public Auftrag() {
     }
 

@@ -1,33 +1,37 @@
 
 package com.example.TestTest.Controler;
 
-        import com.example.TestTest.repo.AuftragRepository;
-        import com.example.TestTest.model.Auftrag;
+import com.example.TestTest.model.Overview;
+import com.example.TestTest.repo.AuftragRepository;
+import com.example.TestTest.model.Auftrag;
 
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.*;
+import com.example.TestTest.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 
-        import java.util.List;
+import java.util.List;
 
 
 @RestController
-public class ControllerAuftrag  {
+public class ControllerAuftrag {
     @Autowired
-    AuftragRepository auftragRepository;
+    OrderService orderService;
 
 
-
-    @GetMapping("/Auftrage")
-    public List<Auftrag> index(){
-
-
-        return auftragRepository.findAll();
+    @GetMapping("/Overview")
+    public List<Overview> Overview() {
+        return orderService.getDataOrders();
     }
-    @GetMapping("/Auftrag/{kundeNummer}")
-    public List<Auftrag> show(@PathVariable Integer kundeNummer){
 
-        return auftragRepository.findByKundenNr(kundeNummer);
+    @GetMapping("/Auftrag/{kundeNummer}")
+    public List<Auftrag> show(@PathVariable Integer kundeNummer, @RequestParam(value = "indexAll", required = false) boolean index) {
+        if (index) {
+            return orderService.ShowAll();
+        }
+
+
+        return orderService.byId(kundeNummer);
     }
 }
 
