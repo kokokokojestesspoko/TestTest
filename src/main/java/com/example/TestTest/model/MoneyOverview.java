@@ -36,7 +36,6 @@ public class MoneyOverview {
 
     public void setUmfangPerJahrInEuro(double umfangPerJahrInEuro) {
         this.umfangPerJahrInEuro = umfangPerJahrInEuro;
-
     }
 
     @Override

@@ -20,9 +20,10 @@ public class OrderService {
     AuftragRepository auftragRepository;
 
     /**
-     * really
-     * @param jahre Jahre
-     * @return  sum of the all rows
+     * Method to sum the all orders from the descripted period
+     *
+     * @param jahre the amount od years which will be used to calculate the "umfang"
+     * @return summed rows "umfang" from last x years
      */
     public double totalRealisierterUmfangInEuro(int jahre) {
 
@@ -33,6 +34,12 @@ public class OrderService {
         return value;
     }
 
+    /**
+     * Method to calculate the umfang from last x years. It will be showed in years, months and days.
+     *
+     * @param jahre years declared by the user in URL
+     * @return returs 3 variables. the summary for days, months and years
+     */
     public MoneyOverview calculate(int jahre) {
         MoneyOverview overview = new MoneyOverview(0, 0, 0);
 
@@ -45,19 +52,42 @@ public class OrderService {
         return overview;
     }
 
+    /**
+     * Shows all from the Table aufrag
+     *
+     * @return the whole table
+     */
     public List<Auftrag> ShowAll() {
         return auftragRepository.findAll();
     }
 
+    /**
+     * method to get all inputs from table Auftrag from last 10 years
+     *
+     * @param date is setting the period of 10 years
+     * @return the whole table Auftrag with data from last 10 years
+     */
     public List<Auftrag> last10Years(LocalDate date) {
 
         return auftragRepository.findAllByAuftragRealisiertAmIsGreaterThanEqual(date);
     }
 
+    /**
+     * Method to find the orders by the customer id
+     *
+     * @param kundeNummer customer id declared by the user in URL
+     * @return the table with results
+     */
     public List<Auftrag> byId(int kundeNummer) {
         return auftragRepository.findByKundenNr(kundeNummer);
     }
 
+    /**
+     * method to set the date back from current date
+     *
+     * @param jahre Parameter which declares how many years should be substracted, declared by the user in Url
+     * @return the date after substraction
+     */
     public LocalDate last10(int jahre) {
 
         LocalDate startingDate = LocalDate.now();

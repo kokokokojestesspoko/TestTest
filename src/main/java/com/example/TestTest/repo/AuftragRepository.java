@@ -9,9 +9,10 @@ import org.springframework.data.repository.CrudRepository;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface AuftragRepository extends JpaRepository<Auftrag,Integer> {
-        List<Auftrag> findByKundenNr(int kundeNummer);
-        List<Auftrag> findAll();
-        List<Auftrag> findAllByAuftragRealisiertAmIsGreaterThanEqual(LocalDate date);
+public interface AuftragRepository extends JpaRepository<Auftrag, Integer> {
+    List<Auftrag> findByKundenNr(int kundeNummer);
 
+    List<Auftrag> findAll();
+
+    List<Auftrag> findAllByAuftragRealisiertAmIsGreaterThanEqual(LocalDate date);
 }

@@ -10,15 +10,13 @@ import java.util.Date;
 import static java.lang.String.format;
 
 @Entity
-@Table(name="auftrag")
-
+@Table(name = "auftrag")
 public class Auftrag {
 
     public Auftrag() {
     }
 
     @Id
-
     @Column(name = "AUFTRAGSNR")
     private int auftragsNr;
     @Column(name = "KUNDENNR")
