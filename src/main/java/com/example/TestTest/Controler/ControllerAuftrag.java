@@ -1,9 +1,8 @@
 package com.example.TestTest.Controler;
 
-import com.example.TestTest.model.Overview;
-import com.example.TestTest.repo.AuftragRepository;
 import com.example.TestTest.model.Auftrag;
 
+import com.example.TestTest.model.MoneyOverview;
 import com.example.TestTest.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,13 @@ public class ControllerAuftrag {
     }
     @GetMapping("/Auftrag/last10Years")
     public List<Auftrag> show(){
-            return orderService.last10Years(orderService.last10());
+            return orderService.last10Years(orderService.last10(10));
         }
+    @GetMapping("/Auftrag/zahl/{jahr}")
+    public MoneyOverview overview(@PathVariable Integer jahr)
+    {
+        return orderService.calculate(jahr);
     }
+    }
+
 

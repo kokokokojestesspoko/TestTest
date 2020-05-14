@@ -26,9 +26,11 @@ public class CustomerService {
 
         return result;
     }
+
     public List<Kunden> allCustomersWithoutOrder() {
         return kundenRepository.noAuftrag();
     }
+
     public List<Kunden> allCustomersWithEmail() {
         return kundenRepository.findAllByNotEmptyEmail();
     }
@@ -44,10 +46,10 @@ public class CustomerService {
     private static String createAddressFrom(Kunden kunden) {
         return kunden.getName() + " " + kunden.getStrasse();
     }
-    public List<Kunden> getList(){
+
+    public List<Kunden> getList() {
         return kundenRepository.findAll();
     }
-
 
     public List<Kunden> byId(Integer kundeNummer) {
         return kundenRepository.findByKundeNr(kundeNummer);

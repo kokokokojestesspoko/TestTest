@@ -7,15 +7,12 @@ public class MoneyOverview {
     private double umfangPerTagInEuro;
     private double umfangPerMonatInEuro;
     private double umfangPerJahrInEuro;
-    private LocalDate auftragRealisiertAm;
-    private double RealisiersterUmfang;
 
-    public MoneyOverview(LocalDate auftragRealisiertAm, double realisiersterUmfang) {
-        this.auftragRealisiertAm = auftragRealisiertAm;
-        RealisiersterUmfang = realisiersterUmfang;
+    public MoneyOverview(double umfangPerTagInEuro, double umfangPerMonatInEuro, double umfangPerJahrInEuro) {
+        this.umfangPerTagInEuro = umfangPerTagInEuro;
+        this.umfangPerMonatInEuro = umfangPerMonatInEuro;
+        this.umfangPerJahrInEuro = umfangPerJahrInEuro;
     }
-
-
 
     public double getUmfangPerTagInEuro() {
         return umfangPerTagInEuro;
@@ -39,21 +36,15 @@ public class MoneyOverview {
 
     public void setUmfangPerJahrInEuro(double umfangPerJahrInEuro) {
         this.umfangPerJahrInEuro = umfangPerJahrInEuro;
+
     }
 
-    public LocalDate getAuftragRealisiertAm() {
-        return auftragRealisiertAm;
-    }
-
-    public void setAuftragRealisiertAm(LocalDate auftragRealisiertAm) {
-        this.auftragRealisiertAm = auftragRealisiertAm;
-    }
-
-    public double getRealisiersterUmfang() {
-        return RealisiersterUmfang;
-    }
-
-    public void setRealisiersterUmfang(double realisiersterUmfang) {
-        RealisiersterUmfang = realisiersterUmfang;
+    @Override
+    public String toString() {
+        return "MoneyOverview{" +
+                "umfangPerTagInEuro=" + umfangPerTagInEuro + " Euro" +
+                ", umfangPerMonatInEuro=" + umfangPerMonatInEuro + " Euro" +
+                ", umfangPerJahrInEuro=" + umfangPerJahrInEuro + " Euro" +
+                '}';
     }
 }
