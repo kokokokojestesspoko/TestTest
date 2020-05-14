@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static java.lang.String.format;
@@ -29,14 +30,14 @@ public class Auftrag {
     @Column(name = "KURZBESCHREIBUNG")
     private String kurzbeschreibung;
     @Column(name = "AUFTRAGREALISIERTAM")
-    private Date auftragRealisiertAm;
+    private LocalDate auftragRealisiertAm;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "kundenNr", nullable = false)
 
     private Kunden kunden;
 
-    public Auftrag(int auftragsNr, int kundenNr, double geplanterUmfangInEuro, double realisierterUmfangInEuro, String kurzbeschreibung, Date auftragRealisiertAm) {
+    public Auftrag(int auftragsNr, int kundenNr, double geplanterUmfangInEuro, double realisierterUmfangInEuro, String kurzbeschreibung, LocalDate auftragRealisiertAm) {
         this.auftragsNr = auftragsNr;
         this.kundenNr = kundenNr;
         this.geplanterUmfangInEuro = geplanterUmfangInEuro;
@@ -85,11 +86,11 @@ public class Auftrag {
         this.kurzbeschreibung = kurzbeschreibung;
     }
 
-    public Date getAuftragRealisiertAm() {
+    public LocalDate getAuftragRealisiertAm() {
         return auftragRealisiertAm;
     }
 
-    public void setAuftragRealisiertAm(Date auftragRealisiertAm) {
+    public void setAuftragRealisiertAm(LocalDate auftragRealisiertAm) {
         this.auftragRealisiertAm = auftragRealisiertAm;
     }
 

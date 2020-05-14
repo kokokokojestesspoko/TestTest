@@ -1,4 +1,3 @@
-
 package com.example.TestTest.Controler;
 
 import com.example.TestTest.model.Overview;
@@ -19,10 +18,10 @@ public class ControllerAuftrag {
     OrderService orderService;
 
 
-    @GetMapping("/Overview")
-    public List<Overview> Overview() {
-        return orderService.getDataOrders();
-    }
+  //  @GetMapping("/Overview")
+  //  public List<Overview> Overview() {
+   //     return orderService.getDataOrders();
+   // }
 
     @GetMapping("/Auftrag/{kundeNummer}")
     public List<Auftrag> show(@PathVariable Integer kundeNummer, @RequestParam(value = "indexAll", required = false) boolean index) {
@@ -33,5 +32,9 @@ public class ControllerAuftrag {
 
         return orderService.byId(kundeNummer);
     }
-}
+    @GetMapping("/Auftrag/last10Years")
+    public List<Auftrag> show(){
+            return orderService.last10Years(orderService.last10());
+        }
+    }
 
